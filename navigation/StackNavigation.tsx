@@ -3,14 +3,22 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import EditProfileScreen from "../screens/EditProfileScreen";
 import TabNavigator from "./TabNavigator";
+import { StackParamList } from "../interfaces/NavigationTypes";
 
 export default function StackNavigation() {
-  let stack = createNativeStackNavigator();
+  let stack = createNativeStackNavigator<StackParamList>();
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Home">
-        <stack.Screen name="Home" component={TabNavigator}></stack.Screen>
-        <stack.Screen name="Edit" component={EditProfileScreen}></stack.Screen>
+      <stack.Navigator initialRouteName="TabNavigator">
+        <stack.Screen
+          name="TabNavigator"
+          component={TabNavigator}
+          options={{ headerShown: false }}
+        ></stack.Screen>
+        <stack.Screen
+          name="EditProfile"
+          component={EditProfileScreen}
+        ></stack.Screen>
       </stack.Navigator>
     </NavigationContainer>
   );

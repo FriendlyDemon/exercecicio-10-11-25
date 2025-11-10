@@ -1,10 +1,17 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { Text } from "react-native";
+import React from "react";
+import { EditProfileScreenProp } from "../interfaces/NavigationTypes";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function EditProfileScreen() {
+export default function EditProfileScreen({
+  route,
+  navigation,
+}: EditProfileScreenProp) {
   return (
-    <View>
+    <SafeAreaView
+      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+    >
       <Text>EditProfileScreen</Text>
-    </View>
-  )
+    </SafeAreaView>
+  );
 }
