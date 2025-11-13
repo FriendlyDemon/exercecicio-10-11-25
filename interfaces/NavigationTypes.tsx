@@ -1,51 +1,33 @@
 import { ParamListBase, RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { User } from "./UserInterface";
 
 export interface StackParamList extends ParamListBase {
-  EditProfile: { id: string; name: string; email: string; city: string };
-  TabNavigator: {
-    id: string;
-    name: string;
-    email: string;
-    city: string;
-    profileImage: string | undefined;
-  };
+  EditProfile: User;
+  TabNavigator: User;
 }
 
 export interface BottomTabParamList extends ParamListBase {
-  Home: {
-    id: string;
-    name: string;
-    email: string;
-    city: string;
-    profileImage: string | undefined;
-  };
+  Home: User;
   Settings: undefined;
 }
 
 export interface HomeScreenProp {
-  navigation: NativeStackNavigationProp<BottomTabParamList, "Home">;
+  navigation: BottomTabNavigationProp<BottomTabParamList, "Home">;
   route: RouteProp<BottomTabParamList, "Home">;
 }
 
 export interface EditProfileScreenProp {
-  navigation: NativeStackNavigationProp<BottomTabParamList, "EditProfile">;
-  route: RouteProp<BottomTabParamList, "EditProfile">;
+  navigation: NativeStackNavigationProp<StackParamList, "EditProfile">;
+  route: RouteProp<StackParamList, "EditProfile">;
 }
 
 export interface SettingsScreenProp {
-  navigation: NativeStackNavigationProp<StackParamList, "Settings">;
-}
-
-export interface HomeScreenPropBottom {
-  navigation: BottomTabNavigationProp<BottomTabParamList, "Home">;
-}
-
-export interface EditProfileScreenPropBottom {
-  navigation: BottomTabNavigationProp<BottomTabParamList, "EditProfile">;
-}
-
-export interface SettingsScreenPropBottom {
   navigation: BottomTabNavigationProp<BottomTabParamList, "Settings">;
+}
+
+export interface TabNavigatorProp {
+  navigation: NativeStackNavigationProp<StackParamList, "TabNavigator">;
+  route: RouteProp<StackParamList, "TabNavigator">;
 }

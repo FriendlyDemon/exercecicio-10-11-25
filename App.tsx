@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import StackNavigation from "./navigation/StackNavigation";
+import StackNavigation from "./navigation/StackNavigator";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import TabNavigator from "./navigation/TabNavigator";
 

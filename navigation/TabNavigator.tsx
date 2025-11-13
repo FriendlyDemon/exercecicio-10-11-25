@@ -1,12 +1,14 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import HomeScreen from "../screens/HomeScreen";
 import SettingScreen from "../screens/SettingScreen";
-import { BottomTabParamList } from "../interfaces/NavigationTypes";
+import {
+  BottomTabParamList,
+  TabNavigatorProp,
+} from "../interfaces/NavigationTypes";
 
-export default function TabNavigator() {
+export default function TabNavigator({ route, navigation }: TabNavigatorProp) {
   let tab = createBottomTabNavigator<BottomTabParamList>();
   return (
     <tab.Navigator
@@ -21,7 +23,11 @@ export default function TabNavigator() {
         },
       })}
     >
-      <tab.Screen name="Home" component={HomeScreen} />
+      <tab.Screen
+        name="Home"
+        component={HomeScreen}
+        initialParams={route.params}
+      />
       <tab.Screen name="Setting" component={SettingScreen} />
     </tab.Navigator>
   );

@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-native";
 import UserCard from "../components/UserCard";
 import { HomeScreenProp } from "../interfaces/NavigationTypes";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen({ route, navigation }: HomeScreenProp) {
-  let id = "0",
-    name = "Pedro",
-    email = "pedro@gmail.com",
-    city = "São Leopoldo",
-    profileImage = undefined;
+  const { id, name, email, city, profileImage } = route.params;
+
   return (
     <SafeAreaView
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
